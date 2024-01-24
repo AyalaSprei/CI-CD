@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,7 +24,7 @@ jobs:
       - name: Build Docker Image
         run: |
           docker build -t docker.pkg.github.com/${{ github.repository }}/MyReady:latest .
-        working-directory: /app
+        working-directory: .
 
       - name: Log in to GitHub Container Registry
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
