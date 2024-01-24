@@ -20,18 +20,18 @@ public class Main {
     }
 
     public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in);
-//
-//        System.out.println("Hello worldd!");
-//
-//        System.out.println("Enter the size of the array:");
-//        int size = scanner.nextInt();
-//
-//        System.out.println("Enter the elements of the array:");
-//        int[] arr = new int[size];
-//        for (int i = 0; i < size; i++) {
-//            arr[i] = scanner.nextInt();
-//        }
-int [] arr= {1,2,1,2,4};
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Hello worldd!");
+
+        System.out.println("Enter the size of the array:");
+        int size = scanner.nextInt();
+
+        System.out.println("Enter the elements of the array:");
+        int[] arr = new int[size];
+        for (int i = 0; i < size; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
         System.out.println("Result: " + findSingle(arr));
     }}
