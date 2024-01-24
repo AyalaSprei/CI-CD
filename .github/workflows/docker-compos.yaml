@@ -24,6 +24,7 @@ jobs:
       - name: Build Docker image
         run: docker build -t docker.pkg.github.com/ayalasprei/ci-cd/myready:latest .
         working-directory: .
+      
 
       - name: Log in to GitHub Container Registry
         run: echo ${{ secrets.DOCKER_PAT }} | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
