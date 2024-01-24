@@ -18,10 +18,10 @@ jobs:
         run: ls -lR
       - name: build docker image
         run: |
-          docker build -t docker.pkg.github.com/${{ github.repository }}/myready:latest .
+          docker build -t docker.pkg.github.com/ayalasprei/ci-cd/myready:latest .
         working-directory: .
       - name: Log in to GitHub Container Registry
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
       - name: push docker image
-        run: docker push docker.pkg.github.com/${{ github.repository }}/myready:latest
+        run: docker push docker.pkg.github.com/ayalasprei/ci-cd/myready:latest
