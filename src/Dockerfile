@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM ghcr.io/openjdk/openjdk:11
 WORKDIR /app
 COPY . /app
 RUN javac Main.java
