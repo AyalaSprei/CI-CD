@@ -7,12 +7,11 @@ public class Main {
         for(int i=0; i<length; i++){
             sum+=arr[i];
         }
-        int maxSingle=sum-length/2 + sum%2;
-
-        for(int i = maxSingle;i>0;i--){
-            for(int j=0; j<arr.length; j+=2){
+        int maxSingle = sum - length + 1;
+        for(int i = maxSingle;i>0;i-=2){
+            for(int j=0; j<arr.length; j+=1){
                 if(arr[j]==i){
-                    return arr[i];
+                    return arr[j];
                 }
             }
         }
