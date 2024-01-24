@@ -1,4 +1,5 @@
 name: build and push docker image
+
 on:
   push:
     branches:
@@ -8,24 +9,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: set up JDK
+      - name: Set up JDK
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
           java-version: '11'
 
-      - name: show repository contents
+      - name: Show repository contents
         run: ls -lR
 
-      - name: build docker image
+      - name: Build Docker image
         run: docker build -t docker.pkg.github.com/ayalasprei/ci-cd/myready:latest .
         working-directory: .
 
       - name: Log in to GitHub Container Registry
-        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+        run: echo ${{ secrets.DOCKER_PAT }} | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
 
-      - name: push docker image
+      - name: Push Docker image
         run: docker push docker.pkg.github.com/ayalasprei/ci-cd/myready:latest
